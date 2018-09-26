@@ -16,9 +16,9 @@ function setup() {
   targetX = windowWidth/2;
   targetY = windowHeight/2;
   for(let i=0; i<15; i++){
-    let x = random(50,800);
-    let y = random(50,800);
-    mover[i] = new Mover(x,y,twitter);
+    let x = random(0,windowWidth);
+    let y = random(0,windowHeight);
+    mover[i] = new Mover(x,y,twitter,targetX,targetY);
   }
   //villan = new Villans(40, 40, 50, twitter, targetX, targetY);
 //   for (let i=0; i<15; i++){

@@ -1,14 +1,16 @@
 class Mover{
-  constructor(x,y,img){
+  constructor(x,y,img,targetX,targetY){
     this.img = img;
+    this.targetX = targetX;
+    this.targetY = targetY;
     this.position = createVector(x, y);
     this.velocity = createVector(0,0);
     this.acceleration = createVector(0,0);
-    this.topSpeed = 5;
+    this.topSpeed = 0.5;
     this.mouse = createVector(0,0);
   }
   update(){
-    this.mouse = createVector(mouseX,mouseY);
+    this.mouse = createVector(this.targetX,this.targetY);
     this.acceleration = p5.Vector.sub(this.mouse,this.position);
     this.acceleration.setMag(0.5);
 
