@@ -1,5 +1,7 @@
 class Mover{
   constructor(x,y,img,targetX,targetY){
+    this.x = x;
+    this.y = y;
     this.img = img;
     this.targetX = targetX;
     this.targetY = targetY;
@@ -21,11 +23,15 @@ class Mover{
 
   show(){
     image(this.img, this.position.x, this.position.y, 50, 50);
-    // stroke(0);
-    // strokeWeight(2);
+    // noStroke();
     // fill(127);
     // ellipse(this.position.x,this.position.y,50,50);
 
+  }
+
+  clicked(a, b){
+    let d = dist(this.position.x, this.position.y, a, b);
+    return (d < 50);
   }
 
 }

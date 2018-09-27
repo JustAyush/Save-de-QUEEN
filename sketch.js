@@ -20,12 +20,15 @@ function setup() {
     let y = random(0,windowHeight);
     mover[i] = new Mover(x,y,twitter,targetX,targetY);
   }
-  //villan = new Villans(40, 40, 50, twitter, targetX, targetY);
-//   for (let i=0; i<15; i++){
-//     let x = random(20, 600);
-//     let y = random(20, 800);
-//       villans[i] = new Villans(x, y, 50, twitter, targetX, targetY);
-//   }
+
+}
+
+function mousePressed(){
+  for(let i=(mover.length-1); i>=0; i--){
+    if(mover[i].clicked(mouseX, mouseY)){
+      mover.splice(i,1);
+    }
+  }
 }
 
 function draw() {
@@ -36,13 +39,5 @@ function draw() {
     mover[i].update();
     mover[i].show();
   }
-
-//  villans[0].show();
-  for (let i=0; i<villans.length; i++){
-  //  villans[i].update();
-  //  villans[i].show();
-  }
-
-
 
 }
