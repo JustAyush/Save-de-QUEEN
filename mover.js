@@ -8,13 +8,15 @@ class Mover{
     this.position = createVector(x, y);
     this.velocity = createVector(0,0);
     this.acceleration = createVector(0,0);
-    this.topSpeed = 0.5;
+    this.topSpeed =6;
     this.mouse = createVector(0,0);
   }
   update(){
     this.mouse = createVector(this.targetX,this.targetY);
+    // this.targetX = this.targetX + random(0,100);
+    // this.targetY = this.targetY + random(0,100);
     this.acceleration = p5.Vector.sub(this.mouse,this.position);
-    this.acceleration.setMag(0.5);
+    this.acceleration.setMag(1.5);
 
     this.velocity = p5.Vector.add(this.velocity, this.acceleration);
     this.velocity.limit(this.topSpeed);
@@ -33,5 +35,11 @@ class Mover{
     let d = dist(this.position.x, this.position.y, a, b);
     return (d < 50);
   }
+
+  intersects(targetX, targetY){
+    let d = dist(this.position.x, this.position.y, targetX, targetY);
+    return (d < 50);
+  }
+
 
 }

@@ -44,10 +44,5 @@ class Villans{
 
   }
 
-  intersects(other){
-    let d = dist(this.x, this.y, other.x, other.y);
-    if(d < (this.r)/2 + (other.r)/2)
-      return true;
-  }
 
 }
