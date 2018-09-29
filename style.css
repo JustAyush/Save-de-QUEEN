@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Bubblegum+Sans');
+
+html, body{
+	padding: 0;
+  font-family: "Bubblegum Sans";
+}
+
+/* The Modal (background) */
+.modal {
+  position: fixed;
+/* 	left: 0;
+	top: 0; */
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(1.1);
+	transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 1rem 1.5rem;
+	width: 180px;
+	border-radius: 0.5rem;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+#oninfo {
+    float: right;
+    width: 2rem;
+    height: 1.5rem;
+    padding-top: 0.2rem;
+  	padding-bottom: 0.4rem;
+    font-size: 2rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: #ff2dd5;
+  	color: #4a0059;
+}
+#oninfo:hover {
+    background-color: #8906a3;
+  	color: #ff2dd5;
+}
+
+div.parentElement{text-align: center;}
+#start, #about {
+    width: 120px;
+    height: 50px;
+    margin-bottom: 30px;
+    margin-right: 4%;
+    margin-left: 4%;
+    padding: 0;
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 25px;
+    color: #4a0059;
+    background-color: #ff2dd5;
+    cursor: pointer;
+  	font-family: "Bubblegum Sans";
+}
+
+#start:hover, #about:hover{
+  background-color: #8906a3;
+  color: #ff2dd5;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+  color: #4a0059;
+  font-family: "Bubblegum Sans";
+}
+
+#score {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4a0059;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #ff2dd5;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ff2dd5;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}

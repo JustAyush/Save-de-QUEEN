@@ -3,15 +3,122 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>p5.js example</title>
+    <title>Save de' QUEEN</title>
     <style> body {padding: 0; margin: 0;} </style>
     <script src="libraries/p5.js"></script>
     <script src="libraries/p5.dom.js"></script>
     <script src="libraries/p5.sound.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="sketch.js"></script>
-    <script src="villans.js"></script>
     <script src="mover.js"></script>
+    <script src="MovingStar.js"></script>
+    <script src="TwinklingStar.js"></script>
   </head>
-  <body>
+
+  <body onload="toggleModal();">
+		<div id="myModal" class="modal">
+		  <div class="modal-content" id="startModal">
+        <p class="title"> Save de' QUEEN </p>
+        <p id ="score">  </p>
+        <div class="parentElement">
+        	<button id="start" onclick="startGame()"> Start </button>
+        	<button id="about" onclick="info()"> About </button>
+          <label class="switch">
+  					<input type="checkbox">
+  					<div class="slider"></div>
+					</label>
+        </div>
+		  </div>
+      <div class="modal-content" id="infoModal">
+        <span id="oninfo" onclick="tostartModal()"> x </span>
+        <p class="title"> Save de' QUEEN </p>
+        <p id="info" style="color: #ff2dd5; "> <p> Author: Ayush Bajracharya </p> <p> Date: Sep 29, 2018 </p> <p> Resource: Daniel Shiffman's YT channel (Cool channel) </p>
+        <p> Music: Elektronomia-Sky High (NCS version) </p>
+        <p> Your job is to save the queen (covered with pinkish border) by clicking on the dudes approaching her. Remember some dudes need multiple clicks. </p>
+        </p>
+      </div>
+
+		</div>
+
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function () {
+  		var checkbox = document.querySelector('input[type="checkbox"]');
+
+
+  		checkbox.addEventListener('change', function () {
+    	if (checkbox.checked) {
+	      vol = false;
+  	  } else {
+      	vol = true;
+    	}
+  		});
+			});
+
+			var modal = document.getElementById('myModal');
+			var span = document.getElementsByClassName("close-button")[0];
+
+      var ready = false;
+      var forModal = true;
+ 			var interval;
+
+			// span.onclick = function() {
+			// 	toggleModal();
+			// }
+
+			function toggleModal(){
+				modal.classList.toggle("show-modal");
+        if(forModal){
+          document.getElementById("infoModal").style.visibility = "hidden";
+        	document.getElementById("startModal").style.visibility = "visible";
+          forModal = false;
+        }
+        else{
+        	document.getElementById("startModal").style.visibility = "hidden";
+  				document.getElementById("infoModal").style.visibility = "visible";
+          forModal = true;
+        }
+			}
+
+      function startGame(){
+      	ready = true;
+        toggleModal();
+  			interval = setInterval(incSpeed,4000);
+        score = 0;
+        music.stop();
+      }
+
+      function incSpeed(){
+  			if(speed<1.4)
+     		 speed += 0.1;
+   			else if(speed>=1.4 && speed<2.2)
+    			speed += 0.08;
+   		 	else
+      		speed += 0.05;
+			}
+
+      function info(){
+      	document.getElementById("startModal").style.visibility = "hidden";
+  			document.getElementById("infoModal").style.visibility = "visible";
+
+      }
+
+      function tostartModal(){
+      	document.getElementById("startModal").style.visibility = "visible";
+  			document.getElementById("infoModal").style.visibility = "hidden";
+      }
+
+      function gameOver(){
+        document.getElementById("startModal").style.visibility = "visible";
+  			document.getElementById("infoModal").style.visibility = "hidden";
+        document.getElementById("score").innerHTML = "Score: " + score;
+      	toggleModal();
+        music.setVolume(0.5);
+        music.play();
+      }
+
+    </script>
+
   </body>
 </html>
